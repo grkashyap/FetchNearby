@@ -1,0 +1,19 @@
+{
+  "name": "fetchnearby",
+  "version": "1.0.0",
+  "description": "Fetch Nearby App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grkashyap/fetchnearby.git"
+  },
+  "author": "Gaddam Rahul Kashyap",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grkashyap/fetchnearby/issues"
+  },
+  "homepage": "https://github.com/grkashyap/fetchnearby#readme"
+}
