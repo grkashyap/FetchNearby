@@ -1,6 +1,26 @@
 <% include partials/header.ejs %>
 <div class="container">
     <h1>Welcome to Fetch Nearby</h1>
+
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <% places.forEach(function(place) { %>
+            <div class="col-md-3 col-sm-6">
+                <a class="thumbnail text-center" data-toggle="modal" data-target="place-modal-lg">
+                    <img src="<%= place.image %>"/>
+                    <div class="caption">
+                        <%= place.name %>
+                    </div>
+                </a>
+            </div>
+        <% }); %>
+        <div class="modal fade place-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                ...
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <% include partials/footer.ejs %>
