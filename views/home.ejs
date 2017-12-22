@@ -5,7 +5,7 @@
     <div class="row" style="display:flex; flex-wrap: wrap;">
         <% places.forEach(function(place) { %>
             <div class="col-md-3 col-sm-6">
-                <a class="thumbnail text-center" data-toggle="modal" data-target="place-modal-lg">
+                <a class="thumbnail text-center nearbyplace" data-toggle="modal" data-target="place-modal-lg">
                     <img src="<%= place.image %>"/>
                     <div class="caption">
                         <%= place.name %>

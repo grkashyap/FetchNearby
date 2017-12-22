@@ -3,6 +3,7 @@ var app = express();
 var PORT_TO_LISTEN = 3000;
 
 app.set("view engine","ejs");
+app.use(express.static(__dirname + "/public"));
 
 var nearbyPlaces = [
     {
