@@ -1,25 +1,29 @@
-var express = require('express');
+var express          = require('express'),
+    googleMapsClient = require('@google/maps').createClient({key: 'AIzaSyBeoWZMKngeM25LbCEa1fFW5c__B6TvJ8c'});
+    
 var app = express();
-var PORT_TO_LISTEN = 3000;
 
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
-
-var nearbyPlaces = [
-    {
-        name: "Charminar",
-        image: "http://www.culturalindia.net/iliimages/Charminar-ili-45-img-4.jpg"
-    },
-    {
-        name: "Birla Mandir",
-        image: "https://media-cdn.tripadvisor.com/media/photo-s/0f/f3/ea/93/birla-mandir-in-hyderabad.jpg"
-    }
-];
+var latitude = '17.385044';
+var longitude = '78.486671';
+var location = {lat:17.385044, lng:78.486671}
 
 app.get("/", function(req,res) {
-    res.render("home",{places:nearbyPlaces});
+    googleMapsClient.placesNearby({location: location, radius:500,type:'restaurant'}, function(err, response) {
+        if(err) {
+            console.log(err);
+        } else {
+            //if(response.status === 200) {
+                console.log(response.results[0]);
+            //}
+            console.log(response);
+            res.send("Hello World");
+        }
+    });
+    res.send("Hello World")
 });
 
-app.listen(PORT_TO_LISTEN, function() {
-    console.log("Fetch Nearby App has started listening on port "+PORT_TO_LISTEN);
+app.listen(process.env.PORT, process.env.IP, function() {
+    console.log("Fetch Nearby App has started");
 });
